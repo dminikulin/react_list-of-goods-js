@@ -66,7 +66,10 @@ export const App = () => {
 
   const reverse = () => {
     setReversed(!isReversed);
-    setVisibleGoods(prevGoods => [...prevGoods].toReversed());
+
+    const sorted = modifyGoods(goodsFromServer, sortType, isReversed);
+
+    setVisibleGoods([...sorted].toReversed());
   };
 
   const reset = () => {
